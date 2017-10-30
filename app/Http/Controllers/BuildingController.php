@@ -17,12 +17,13 @@ class BuildingController extends Controller
     }
 
     public function store(Request $request) {
-    	$building = Building::create($request->all());
+        $data = $request->json()->all();
+    	$building = Building::create($data);
     	return response()->json($building, 201);
     }
 
     public function update(Request $request, Building $building) {
-    	$building->update($request->all());
+    	$building->update($request->json()->all());
     	return response()->json($building, 200);
     }
 

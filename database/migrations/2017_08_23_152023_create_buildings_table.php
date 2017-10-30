@@ -34,7 +34,7 @@ class CreateBuildingsTable extends Migration
             $table->string('model_url');
             
             //references
-            $table->integer('owner_id');
+            $table->integer('owner_id')->nullable();
             $table->integer('cluster_id')->nullable();
 
             $table->text('description')->nullable();
