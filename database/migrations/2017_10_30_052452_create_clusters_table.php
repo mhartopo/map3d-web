@@ -27,9 +27,9 @@ class CreateClustersTable extends Migration
 
             //model
             $table->string('model_url');
-
+            $table->text('description')->nullable();
             //reference
-            $table->integer('owner_id');
+            $table->integer('owner_id')->nullable();
 
             $table->timestamps();
         });

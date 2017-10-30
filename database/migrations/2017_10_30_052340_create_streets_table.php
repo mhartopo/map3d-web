@@ -25,9 +25,9 @@ class CreateStreetsTable extends Migration
 
             //model
             $table->string('model_url');
-
+            $table->text('description')->nullable();
             //references
-            $table->integer('cluster_id');
+            $table->integer('cluster_id')->nullable();
             
             $table->timestamps();
         });

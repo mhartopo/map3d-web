@@ -18,8 +18,9 @@ class CreateBuildingsTable extends Migration
 
             $table->string('name');
             $table->string('address');
-            $table->string('owner');
-            
+            $table->integer('value');
+            $table->string('function');
+
             //location
             $table->double('longitude');
             $table->double('latitude');
@@ -31,8 +32,12 @@ class CreateBuildingsTable extends Migration
 
             //model
             $table->string('model_url');
+            
+            //references
+            $table->integer('owner_id');
+            $table->integer('cluster_id')->nullable();
 
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

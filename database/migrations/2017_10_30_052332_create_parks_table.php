@@ -32,8 +32,9 @@ class CreateParksTable extends Migration
 
             //references
             $table->integer('owner_id');
-            $table->integer('cluster_id');
+            $table->integer('cluster_id')->nullable();
             
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

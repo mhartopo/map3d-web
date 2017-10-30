@@ -18,7 +18,7 @@ class CreateLandsTable extends Migration
             //informations
             $table->string('address');
             $table->string('function');
-            $table->string('value');
+            $table->integer('value');
             
             //dimension
             $table->float('length');
@@ -31,9 +31,9 @@ class CreateLandsTable extends Migration
             //model
             $table->string('model_url');
             //references
-            $table->integer('owner_id');
-            $table->integer('cluster_id');
-            
+            $table->integer('owner_id')->nullable();
+            $table->integer('cluster_id')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
