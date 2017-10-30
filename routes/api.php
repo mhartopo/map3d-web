@@ -20,3 +20,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('buildings', 'BuildingController@index');
 Route::post('buildings', 'BuildingController@store');
 
+Route::get('clusters', 'ClusterController@index');
+Route::post('clusters', 'ClusterController@store');
+
+Route::get('lands', 'LandController@index');
+Route::post('lands', 'LandController@store');
+
+Route::get('owners', 'OwnerController@index');
+Route::post('owners', 'OwnerController@store');
+
+Route::get('parks', 'ParkController@index');
+Route::post('parks', 'ParkController@store');
+
+Route::get('streets', 'StreetController@index');
+Route::post('streets', 'StreetController@store');
+
+Route::get('waters', 'WaterController@index');
+Route::post('waters', 'WaterController@store');
