@@ -18,7 +18,7 @@ class CreateLandsTable extends Migration
             //informations
             $table->string('address');
             $table->string('function');
-            $table->integer('value');
+            $table->bigInteger('value');
             
             //dimension
             $table->float('length');

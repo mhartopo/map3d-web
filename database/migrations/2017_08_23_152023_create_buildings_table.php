@@ -18,7 +18,7 @@ class CreateBuildingsTable extends Migration
 
             $table->string('name');
             $table->string('address');
-            $table->integer('value');
+            $table->bigInteger('value');
             $table->string('function');
 
             //location
