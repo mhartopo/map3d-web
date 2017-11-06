@@ -19,3 +19,4 @@ Route::get('test', 'TestController@index');
 
 //cluster
 Route::get('clusters', 'admin\ClustersController@index');
+Route::get('clusters/{id}', 'admin\ClustersController@show');

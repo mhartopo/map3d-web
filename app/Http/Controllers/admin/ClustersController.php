@@ -5,6 +5,12 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cluster;
+use App\Building;
+use App\Park;
+use App\Water;
+use App\Land;
+use App\Street;
+
 class ClustersController extends Controller
 {
     /**
@@ -15,7 +21,7 @@ class ClustersController extends Controller
     public function index()
     {
         $clusters = Cluster::all();
-        return view('all_clusters', compact('clusters'));
+        return view('cluster.all_clusters', compact('clusters'));
     }
 
     /**
@@ -47,7 +53,14 @@ class ClustersController extends Controller
      */
     public function show($id)
     {
-        //
+        $cluster = Cluster::where('id', $id)->get();
+        $parks = Park::where('cluster_id', $id)->get();
+        $lands = Land::where('cluster_id', $id)->get();
+        $streets = Street::where('cluster_id', $id)->get();
+        $waters =  Water::where('cluster_id', $id)->get();
+        $buildings = Building::where('cluster_id', $id)->get();
+ 
+        return view('cluster.show_cluster', compact('cluster', 'buildings', 'lands', 'parks', 'streets', 'waters', 'id'));
     }
 
     /**

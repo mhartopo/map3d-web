@@ -2,7 +2,11 @@
 
 @section('title')
   Kompleks
-@stop
+@endsection
+
+@section('page_title')
+  Daftar Kompleks
+@endsection
 
 @section('content')
   <div class="row">
@@ -17,7 +21,7 @@
           <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
               <tr>
-                <th>id</th>
+                <th>ID</th>
                 <th>Nama</th>
                 <th>Jenis</th>
                 <th>Alamat</th>
@@ -45,4 +49,4 @@
   <!-- /.col-lg-12 -->
   </div>
   <!-- /.row -->
-@stop
+@endsection
