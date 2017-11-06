@@ -15,8 +15,8 @@
                         <li class="active"><a href="#tab-default-1" data-toggle="tab">Bangunan</a></li>
                         <li><a href="#tab-default-2" data-toggle="tab">Taman</a></li>
                         <li><a href="#tab-default-3" data-toggle="tab">Tanah</a></li>
-                        <li><a href="#tab-default-3" data-toggle="tab">Jalan</a></li>
-                        <li><a href="#tab-default-3" data-toggle="tab">Perairan</a></li>
+                        <li><a href="#tab-default-4" data-toggle="tab">Jalan</a></li>
+                        <li><a href="#tab-default-5" data-toggle="tab">Perairan</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     @yield('bangunan')
                   </div>
                   <div class="tab-pane fade" id="tab-default-2">
-                    @yield('taman')
+                    @yield('taman');
                   </div>
                   <div class="tab-pane fade" id="tab-default-3">
                     @yield('tanah')

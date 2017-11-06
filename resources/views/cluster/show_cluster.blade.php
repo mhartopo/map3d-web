@@ -133,7 +133,7 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Daftar Taman
+        Daftar Jalan
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -143,17 +143,15 @@
               <tr>
                 <th>ID</th>
                 <th>Nama</th>
-                <th>Luas</th>
-                <th>Alamat</th>
+                <th>Jenis</th>
               </tr>
             </thead>
             <tbody>
-            @foreach($parks as $park)
+            @foreach($streets as $street)
               <tr>
-                <td>{{$park->id}}</td>
-                <td>{{$park->name}}</td>
-                <td>{{$park->width * $park->length}} m<sup>2</sup></td>
-                <td>{{$park->address}}</td>
+                <td>{{$street->id}}</td>
+                <td>{{$street->name}}</td>
+                <td>{{$street->type}}</td>
               </tr>
             @endforeach
             </tbody>
@@ -171,5 +169,43 @@
 @endsection
 
 @section('perairan')
-
+  <div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Daftar perairan
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="dataTable_wrapper">
+          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Jenis</th>
+                <th>Fungsi</th>
+              </tr>
+            </thead>
+            <tbody>
+            @foreach($waters as $water)
+              <tr>
+                <td>{{$water->id}}</td>
+                <td>{{$water->name}}</td>
+                <td>{{$water->type}}</td>
+                <td>{{$water->function}}</td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+  <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
 @endsection

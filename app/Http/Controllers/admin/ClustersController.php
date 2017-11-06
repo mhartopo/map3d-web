@@ -60,7 +60,7 @@ class ClustersController extends Controller
         $waters =  Water::where('cluster_id', $id)->get();
         $buildings = Building::where('cluster_id', $id)->get();
  
-        return view('cluster.show_cluster', compact('cluster', 'buildings', 'lands', 'parks', 'streets', 'waters', 'id'));
+        return view('cluster.show_cluster', compact('cluster', 'buildings', 'parks', 'lands', 'streets', 'waters', 'id'));
     }
 
     /**
