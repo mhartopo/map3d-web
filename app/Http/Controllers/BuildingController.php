@@ -16,6 +16,14 @@ class BuildingController extends Controller
     	return $building;
     }
 
+    public function getByName($name) {
+        return Building::where('name', $name)->get();
+    }
+
+    public function getByAddress($address) {
+        return Building::where('address', 'like', $address.'%')->get();
+    }
+
     public function store(Request $request) {
         $data = $request->json()->all();
     	$building = Building::create($data);

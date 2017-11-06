@@ -16,6 +16,10 @@ class StreetController extends Controller
     	return $street;
     }
 
+    public function getByName($name){
+        return Street::where('name', $name)->get();
+    }
+
     public function store(Request $request) {
         $data = $request->json()->all();
     	$street = Street::create($data);

@@ -15,6 +15,14 @@ class ParkController extends Controller
     	return $park;
     }
 
+    public function getByName($name) {
+        return Park::where('name', $name)->get();
+    }
+
+    public function getByAddress($address) {
+        return Park::where('address', 'like', $address.'%')->get();
+    }
+
     public function store(Request $request) {
         $data = $request->json()->all();
     	$park = Park::create($data);

@@ -15,6 +15,10 @@ class WaterController extends Controller
     	return $water;
     }
 
+    public function getByName($name) {
+        return Water::where('name', $name)->get();
+    }
+
     public function store(Request $request) {
         $data = $request->json()->all();
     	$water = Water::create($data);

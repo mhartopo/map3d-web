@@ -15,6 +15,9 @@ class LandController extends Controller
     	return $land;
     }
 
+    public function getByAddress($address) {
+        return Land::where('address', 'like', $address.'%')->get();
+    }
     public function store(Request $request) {
         $data = $request->json()->all();
     	$land = Land::create($data);

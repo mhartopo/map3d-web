@@ -15,6 +15,14 @@ class ClusterController extends Controller
     	return $cluster;
     }
 
+    public function getByName($name) {
+        return Cluster::where('name', $name)->get();
+    }
+
+    public function getByAddress($address) {
+        return Cluster::where('address', 'like', $address.'%')->get();
+    }
+
     public function store(Request $request) {
         $data = $request->json()->all();
     	$cluster = Cluster::create($data);
