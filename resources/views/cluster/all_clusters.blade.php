@@ -25,15 +25,23 @@
                 <th>Nama</th>
                 <th>Jenis</th>
                 <th>Alamat</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
             @foreach($clusters as $cluster)
               <tr>
                 <td>{{$cluster->id}}</td>
-                <td>{{$cluster->name}}</td>
+                <td><a href="{{URL::to('/')}}/clusters/{{$cluster->id}}">{{$cluster->name}}</a></td>
                 <td>{{$cluster->type}}</td>
                 <td>{{$cluster->address}}</td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                </td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+                </td>
               </tr>
             @endforeach
             </tbody>

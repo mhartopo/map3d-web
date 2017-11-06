@@ -18,6 +18,8 @@
                 <th>Fungsi</th>
                 <th>Alamat</th>
                 <th>Nilai Jual</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -28,6 +30,12 @@
                 <td>{{$building->function}}</td>
                 <td>{{$building->address}}</td>
                 <td>Rp. {{$building->value}}</td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                </td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+                </td>
               </tr>
             @endforeach
             </tbody>
@@ -61,6 +69,8 @@
                 <th>Nama</th>
                 <th>Luas</th>
                 <th>Alamat</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -70,6 +80,12 @@
                 <td>{{$park->name}}</td>
                 <td>{{$park->width * $park->length}} m<sup>2</sup></td>
                 <td>{{$park->address}}</td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                </td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+                </td>
               </tr>
             @endforeach
             </tbody>
@@ -103,6 +119,8 @@
                 <th>Fungsi</th>
                 <th>Luas</th>
                 <th>Nilai Jual</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -112,6 +130,12 @@
                 <td>{{$land->function}}</td>
                 <td>{{$land->width * $land->length}} m<sup>2</sup></td>
                 <td>Rp. {{$land->value}}</td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                </td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+                </td>
               </tr>
             @endforeach
             </tbody>
@@ -144,6 +168,8 @@
                 <th>ID</th>
                 <th>Nama</th>
                 <th>Jenis</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -152,6 +178,12 @@
                 <td>{{$street->id}}</td>
                 <td>{{$street->name}}</td>
                 <td>{{$street->type}}</td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                </td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+                </td>
               </tr>
             @endforeach
             </tbody>
@@ -185,6 +217,8 @@
                 <th>Nama</th>
                 <th>Jenis</th>
                 <th>Fungsi</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -194,6 +228,12 @@
                 <td>{{$water->name}}</td>
                 <td>{{$water->type}}</td>
                 <td>{{$water->function}}</td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                </td>
+                <td>
+                  <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+                </td>
               </tr>
             @endforeach
             </tbody>

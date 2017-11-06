@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('test', 'TestController@index');
-
+Route::get('/', 'admin\ClustersController@index');
 
 //cluster
 Route::get('clusters', 'admin\ClustersController@index');
