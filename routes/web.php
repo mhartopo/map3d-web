@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('test', 'TestController@index');
+
+
+//cluster
+Route::get('clusters', 'admin\ClustersController@index');
