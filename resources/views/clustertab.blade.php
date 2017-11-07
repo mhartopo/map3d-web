@@ -1,10 +1,15 @@
 @extends('app_template')
 
 @section('title')
-  Lihat Kompleks | {{ $id }}
+  Detail Kompleks | {{ $id }}
+@endsection
+
+@section('page_title')
+  Detail Kompleks
 @endsection
 
 @section('content')
+  @yield('detail_kompleks')
   <div class="row">
     <div class="col-lg-12">
         <div class="panel tabbed-panel panel-default">

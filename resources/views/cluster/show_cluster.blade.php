@@ -1,5 +1,56 @@
 @extends('clustertab')
 
+@section('detail_kompleks')
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-2">
+          <p>Nama Kompleks</p>
+        </div>
+        <div class="col-md-10">
+          <p>{{$cluster[0]->name}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <p>Jenis </p>
+        </div>
+        <div class="col-md-10">
+          <p>{{$cluster[0]->type}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <p>Alamat</p>
+        </div>
+        <div class="col-md-10">
+          <p>{{$cluster[0]->address}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <p>Lokasi</p>
+        </div>
+        <div class="col-md-10">
+          <p>Latitude : {{$cluster[0]->latitude}}, Longitude : {{$cluster[0]->longitude}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <p>Pemilik</p>
+        </div>
+        <div class="col-md-10">
+          @if(count($owner) === 0)
+            <p>Tidak ada pemilik</p>
+          @else
+            <p>{{$owner[0]->name}}</p>
+          @endif
+        </div>
+      </div>
+    </div>
+  </div>  
+@endsection
+
 @section('bangunan')
   <div class="row">
   <div class="col-lg-12">

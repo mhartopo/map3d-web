@@ -10,7 +10,7 @@ use App\Park;
 use App\Water;
 use App\Land;
 use App\Street;
-
+use App\Owner;
 class ClustersController extends Controller
 {
     /**
@@ -59,8 +59,8 @@ class ClustersController extends Controller
         $streets = Street::where('cluster_id', $id)->get();
         $waters =  Water::where('cluster_id', $id)->get();
         $buildings = Building::where('cluster_id', $id)->get();
- 
-        return view('cluster.show_cluster', compact('cluster', 'buildings', 'parks', 'lands', 'streets', 'waters', 'id'));
+        $owner = Owner::where('id', $cluster[0]->owner_id)->get();
+        return view('cluster.show_cluster', compact('cluster', 'buildings', 'parks', 'lands', 'streets', 'waters', 'id', 'owner'));
     }
 
     /**
