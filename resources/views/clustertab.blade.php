@@ -14,7 +14,6 @@
     <div class="col-lg-12">
         <div class="panel tabbed-panel panel-default">
             <div class="panel-heading clearfix">
-                <div class="panel-title pull-left">Objek Pada Kompleks Id : {{ $cluster[0]->id }}</div>
                 <div class="pull-right">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab-default-1" data-toggle="tab">Bangunan</a></li>

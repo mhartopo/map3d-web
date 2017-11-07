@@ -11,6 +11,7 @@ use App\Water;
 use App\Land;
 use App\Street;
 use App\Owner;
+
 class ClustersController extends Controller
 {
     /**
@@ -31,7 +32,7 @@ class ClustersController extends Controller
      */
     public function create()
     {
-        //
+        return view('cluster.clusterform');
     }
 
     /**
@@ -42,7 +43,7 @@ class ClustersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           
     }
 
     /**

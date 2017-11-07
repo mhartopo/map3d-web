@@ -15,4 +15,6 @@ Route::get('/', 'admin\ClustersController@index');
 
 //cluster
 Route::get('clusters', 'admin\ClustersController@index');
+Route::get('clusters/create', 'admin\ClustersController@create');
+Route::post('clusters', 'admin\ClustersController@store');
 Route::get('clusters/{id}', 'admin\ClustersController@show');
