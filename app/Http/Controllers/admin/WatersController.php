@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Water;
 class WatersController extends Controller
 {
     /**
@@ -14,7 +14,14 @@ class WatersController extends Controller
      */
     public function index()
     {
-        //
+        $waters = Water::all();
+        return view('water.allwaters', compact('waters'));
+    }
+
+    public function search(Request $request) {
+        $name = $request->input('query');
+        $waters = Water::where('name', 'like', '%' . $name . '%')->get();
+        return view('water.allwaters', compact('waters'));
     }
 
     /**
@@ -80,6 +87,8 @@ class WatersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $water = Water::find($id);
+        $water->delete();
+        return \Redirect::to('waters');
     }
 }

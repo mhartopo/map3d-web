@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Park;
 
 class ParksController extends Controller
 {
@@ -14,7 +15,14 @@ class ParksController extends Controller
      */
     public function index()
     {
-        //
+        $parks = Park::all();
+        return view('park.allparks', compact('parks'));
+    }
+
+    public function search(Request $request) {
+        $name = $request->input('query');
+        $parks = Park::where('name', 'like', '%' . $name . '%')->get();
+        return view('park.allparks', compact('parks'));
     }
 
     /**
@@ -80,6 +88,8 @@ class ParksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $park = Park::find($id);
+        $park->delete();
+        return \Redirect::to('parks');
     }
 }

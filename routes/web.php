@@ -26,4 +26,18 @@ Route::get('buildings/search', 'admin\BuildingsController@search');
 Route::resource('buildings', 'admin\BuildingsController');
 
 //lands
+Route::get('lands/search', 'admin\LandsController@search');
 Route::resource('lands', 'admin\LandsController');
+
+//parks
+Route::get('parks/search', 'admin\ParksController@search');
+Route::resource('parks', 'admin\ParksController');
+
+//street
+Route::get('streets/search', 'admin\StreetsController@search');
+Route::resource('streets', 'admin\StreetsController');
+
+//water
+Route::get('waters/search', 'admin\WatersController@search');
+Route::resource('waters', 'admin\WatersController');
+

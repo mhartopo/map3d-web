@@ -85,7 +85,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="{{URL::to('/')}}/clusters" class="active"><i class="fa fa-building fa-fw"></i> Kompleks </a>
+                        <a href="{{URL::to('/')}}/clusters" ><i class="fa fa-building fa-fw"></i> Kompleks </a>
                     </li>
                     <li>
                         <a href="{{URL::to('/')}}/owners"><i class="fa fa-users fa-fw"></i> Pemilik</a>

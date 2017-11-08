@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Street;
 class StreetsController extends Controller
 {
     /**
@@ -14,7 +14,14 @@ class StreetsController extends Controller
      */
     public function index()
     {
-        //
+        $streets = Street::all();
+        return view('street.allstreets', compact('streets'));
+    }
+
+    public function search(Request $request) {
+        $name = $request->input('query');
+        $streets = Street::where('name', 'like', '%' . $name . '%')->get();
+        return view('street.allstreets', compact('streets'));
     }
 
     /**
@@ -80,6 +87,8 @@ class StreetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $street = Street::find($id);
+        $street->delete();
+        return \Redirect::to('streets');
     }
 }

@@ -1,11 +1,11 @@
 @extends('app_template')
 
 @section('title')
-  Tanah
+  Jalan
 @endsection
 
 @section('page_title')
-  Daftar Tanah
+  Daftar Jalan
 @endsection
 
 @section('head_content')
@@ -13,12 +13,12 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-3">
-        <button class="btn m-b-sm m-r-sm btn-success" onclick="location.href = '{{URL::to('/')}}/lands/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Tanah</button>
+        <button class="btn m-b-sm m-r-sm btn-success" onclick="location.href = '{{URL::to('/')}}/streets/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Jalan</button>
       </div>
       <div class="col-md-9">
-        <form action = "{{URL::to('/')}}/lands/search" method="GET">
+        <form action = "{{URL::to('/')}}/streets/search" method="GET">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Cari Alamat Tanah" name="query" required> 
+            <input type="text" class="form-control" placeholder="Cari Nama Jalan" name="query" required> 
             <span class="input-group-btn">
               <button class="btn btn-primary" type="submit">Go!</button>
             </span>
@@ -40,7 +40,7 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Tabel Tanah
+        Tabel Jalan
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -49,27 +49,25 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Alamat</th>
+                <th>Nama</th>
                 <th>Jenis</th>
-                <th>Nilai</th>
-                <th>Ukuran</th>
+                <th>Deskripsi</th>
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-            @foreach($lands as $land)
+            @foreach($streets as $street)
               <tr>
-                <td>{{$land->id}}</td>
-                <td>{{$land->address}}</td>
-                <td>{{$land->function}}</td>
-                <td>{{$land->value}}</td>
-                <td>{{$land->length}} x {{$land->width}} m</td>
+                <td>{{$street->id}}</td>
+                <td>{{$street->name}}</td>
+                <td>{{$street->type}}</td>
+                <td>{{$street->description}}</td>
                 <td>
                   <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>
                 <td>
-                  {{ Form::open(array('route' => array('lands.destroy', $land->id), 'method' => 'delete'))}}
+                  {{ Form::open(array('route' => array('streets.destroy', $street->id), 'method' => 'delete'))}}
                     {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
                   {{ Form::close() }}
                 </td>

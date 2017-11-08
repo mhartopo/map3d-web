@@ -19,6 +19,12 @@ class LandsController extends Controller
         return view('land.lands', compact('lands'));
     }
 
+    public function search(Request $request) {
+        $address = $request->input('query');
+        $lands = Land::where('address', 'like', '%'.$address.'%')->get();
+        return view('land.lands', compact('lands'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -82,6 +88,8 @@ class LandsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $land = Land::find($id);
+        $land->delete();
+        return \Redirect::to('lands');
     }
 }

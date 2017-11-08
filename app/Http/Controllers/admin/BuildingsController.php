@@ -96,6 +96,8 @@ class BuildingsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $building = Building::find($id);
+        $building->delete();
+        return \Redirect::to('buildings');
     }
 }
