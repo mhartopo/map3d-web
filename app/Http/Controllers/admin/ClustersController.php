@@ -25,6 +25,12 @@ class ClustersController extends Controller
         return view('cluster.all_clusters', compact('clusters'));
     }
 
+    public function search(Request $request) {
+        $name = $request->input('query');
+        $clusters = Cluster::where('name', 'like', '%' . $name .'%')->get();
+        return view('cluster.all_clusters', compact('clusters'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

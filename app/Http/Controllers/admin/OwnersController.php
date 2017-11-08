@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Owner;
 class OwnersController extends Controller
 {
     /**
@@ -14,7 +14,14 @@ class OwnersController extends Controller
      */
     public function index()
     {
-        //
+        $owners = Owner::all();
+        return view('owner.allowners', compact('owners'));
+    }
+
+    public function search(Request $request) {
+        $name = $request->input('query');
+        $owners = Owner::where('name', 'like', '%' . $name . '%')->get();
+        return view('owner.allowners', compact('owners'));
     }
 
     /**

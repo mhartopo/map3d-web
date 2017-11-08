@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use App\Building;
+
 class BuildingsController extends Controller
 {
     /**
@@ -14,7 +16,14 @@ class BuildingsController extends Controller
      */
     public function index()
     {
-        //
+        $buildings = Building::all();
+        return view('building.allbuildings', compact('buildings'));
+    }
+
+    public function search(Request $request) {
+        $name = $request->input('query');
+        $buildings = Building::where('name', 'like', '%' . $name . '%')->get();
+        return view('building.allbuildings', compact('buildings'));
     }
 
     /**
@@ -35,12 +44,14 @@ class BuildingsController extends Controller
      */
     public function store(Request $request)
     {
+        /*
         $fileName =  Carbon::now()->toDateTimeString() . '.' . $request->file('model')->getClientOriginalExtension();
         $pathUrl = base_path() . '/public/files/catalog/';
         $request->file('model')->move(
             $pathUrl, $fileName
         );
         return $pathUrl . $fileName;
+        */
     }
 
     /**

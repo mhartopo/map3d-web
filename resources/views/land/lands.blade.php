@@ -1,11 +1,11 @@
 @extends('app_template')
 
 @section('title')
-  Kompleks
+  Tanah
 @endsection
 
 @section('page_title')
-  Daftar Kompleks
+  Daftar Tanah
 @endsection
 
 @section('head_content')
@@ -13,12 +13,12 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-3">
-        <button class="btn m-b-sm m-r-sm btn-success" onclick="location.href = '{{URL::to('/')}}/clusters/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Kompleks</button>
+        <button class="btn m-b-sm m-r-sm btn-success" onclick="location.href = '{{URL::to('/')}}/lands/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Tanah</button>
       </div>
       <div class="col-md-9">
-        <form action = "{{URL::to('/')}}/clusters/search" method="GET">
+        <form action = "{{URL::to('/')}}/lands/search" method="GET">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Cari Nama Kompleks" name="query" required> 
+            <input type="text" class="form-control" placeholder="Cari Nama Tanah" name="query" required> 
             <span class="input-group-btn">
               <button class="btn btn-primary" type="submit">Go!</button>
             </span>
@@ -40,7 +40,7 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Tabel Kompleks
+        Tabel Tanah
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -49,25 +49,27 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Nama</th>
-                <th>Jenis</th>
                 <th>Alamat</th>
+                <th>Jenis</th>
+                <th>Nilai</th>
+                <th>Ukuran</th>
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-            @foreach($clusters as $cluster)
+            @foreach($lands as $land)
               <tr>
-                <td>{{$cluster->id}}</td>
-                <td><a href="{{URL::to('/')}}/clusters/{{$cluster->id}}">{{$cluster->name}}</a></td>
-                <td>{{$cluster->type}}</td>
-                <td>{{$cluster->address}}</td>
+                <td>{{$land->id}}</td>
+                <td>{{$land->address}}</td>
+                <td>{{$land->function}}</td>
+                <td>{{$land->value}}</td>
+                <td>{{$land->length}} x {{$land->width}} m</td>
                 <td>
                   <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>
                 <td>
-                  {{ Form::open(array('route' => array('clusters.destroy', $cluster->id), 'method' => 'delete'))}}
+                  {{ Form::open(array('route' => array('lands.destroy', $land->id), 'method' => 'delete'))}}
                     {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                   {{ Form::close() }}
                 </td>

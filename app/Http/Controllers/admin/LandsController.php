@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Land;
 
 class LandsController extends Controller
 {
@@ -13,8 +14,9 @@ class LandsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $lands = Land::all();
+        return view('land.lands', compact('lands'));
     }
 
     /**

@@ -73,7 +73,6 @@
         <!-- Sidebar -->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
@@ -86,10 +85,30 @@
                         </div>
                     </li>
                     <li>
-                        <a href="{{URL::to('/')}}/clusters" class="active"><i class="fa fa-dashboard fa-fw"></i> Kompleks </a>
+                        <a href="{{URL::to('/')}}/clusters" class="active"><i class="fa fa-building fa-fw"></i> Kompleks </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Pemilik</a>
+                        <a href="{{URL::to('/')}}/owners"><i class="fa fa-users fa-fw"></i> Pemilik</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Detail Objek <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{URL::to('/')}}/buildings">Bangunan</a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('/')}}/lands">Tanah</a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('/')}}/parks">Taman</a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('/')}}/streets">Jalan</a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('/')}}/waters">Perairan</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
 
@@ -110,6 +129,8 @@
             </div>
 
             <!-- ... Your content goes here ... -->
+            @yield('head_content')
+
             @yield('content')
 
         </div>
