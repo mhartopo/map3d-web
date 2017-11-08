@@ -1,4 +1,4 @@
-@extends('app_template')
+@extends('template_wmap')
 @section('title')
   Form Kompleks
 @endsection
@@ -12,8 +12,6 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-10">
-
-       
       {{ Form::open(array('action' => 'admin\ClustersController@store','files'=>true, 'method'=>'post')) }}
         <div class="form-group">
           <label>Nama Kompleks</label>
@@ -29,12 +27,22 @@
         </div>
         <div class="form-group">
           <label>Lokasi</label>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-12">
+                <div style="width: 700px; height: 500px;" id="map">
+              </div>
+            </div>
+          </div>
+          </br>
           <div class="row">
             <div class="col-md-6">
-              <input class="form-control" placeholder="Latitude" name="latitude">
+              <label>Latitude</label>
+              <input class="form-control" id="latInput" placeholder="Latitude" name="latitude" readonly>
             </div>
             <div class="col-md-6">
-              <input class="form-control" placeholder="Longitude" name="longitude">
+              <label>Longitude</label>
+              <input class="form-control" id="lngInput" placeholder="Longitude" name="longitude" readonly>
             </div>
           </div>
         </div>

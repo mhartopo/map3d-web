@@ -23,7 +23,7 @@
     <!-- Custom CSS -->
     <link href="{{URL::asset('css/startmin.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/myapp.css')}}" rel="stylesheet">
-
+    
     <!-- Morris Charts CSS -->
     <link href="{{URL::asset('css/morris.css')}}" rel="stylesheet">
 
@@ -34,7 +34,6 @@
 <body>
 
 <div id="wrapper">
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
@@ -116,11 +115,10 @@
             </div>
         </div>
     </nav>
-
+    
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
@@ -133,7 +131,7 @@
             @yield('head_content')
 
             @yield('content')
-
+            <div id="map"></div>
         </div>
     </div>
 
@@ -151,5 +149,34 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{URL::asset('js/startmin.js')}}"></script>
 
+<!-- Google map script -->
+<script>
+  function initMap() {
+    
+    var myLatlng = new google.maps.LatLng(-6.909579,107.606419);
+    var mapOptions = {
+      zoom: 14,
+      center: myLatlng,
+    }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    document.getElementById("latInput").value = -6.909579;
+    document.getElementById("lngInput").value = 107.606419; 
+    // Place a draggable marker on the map
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        draggable:true,
+        title:"Drag me!"
+    });
+    
+    google.maps.event.addListener(marker, 'dragend', function (evt) {
+        document.getElementById("latInput").value = evt.latLng.lat().toFixed(3);
+        document.getElementById("lngInput").value = evt.latLng.lng().toFixed(3);
+    });
+  }
+  
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkbn1OV1eztX06B-paXTZ4RkLoJrL3PII&callback=initMap"> </script>
+<script src="https://google-maps-utility-library-v3.googlecode.com/svn-history/r287/trunk/markerclusterer/src/markerclusterer.js"></script>
 </body>
 </html>

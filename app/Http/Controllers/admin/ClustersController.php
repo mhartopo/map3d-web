@@ -11,6 +11,7 @@ use App\Water;
 use App\Land;
 use App\Street;
 use App\Owner;
+use Mapper;
 
 class ClustersController extends Controller
 {
@@ -38,6 +39,7 @@ class ClustersController extends Controller
      */
     public function create()
     {
+        Mapper::map(-6.909579,107.606419);
         return view('cluster.clusterform');
     }
 
