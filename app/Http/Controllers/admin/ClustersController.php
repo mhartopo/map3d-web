@@ -43,7 +43,9 @@ class ClustersController extends Controller
      */
     public function store(Request $request)
     {
-           
+        $data = $request->all();
+    	$cluster = Cluster::create($data);
+        return \Redirect::to('clusters/'.$cluster->id);  
     }
 
     /**
@@ -52,8 +54,9 @@ class ClustersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cluster $cluster)
     {
+        $id = $cluster->id;
         $cluster = Cluster::where('id', $id)->get();
         $parks = Park::where('cluster_id', $id)->get();
         $lands = Land::where('cluster_id', $id)->get();
@@ -95,6 +98,13 @@ class ClustersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Building::where('cluster_id', $id)->delete();
+        Land::where('cluster_id', $id)->delete();
+        Park::where('cluster_id', $id)->delete();
+        Street::where('cluster_id', $id)->delete();
+        Water::where('cluster_id', $id)->delete();
+        $cluster = Cluster::find($id);
+        $cluster->delete();
+        return \Redirect::to('clusters');
     }
 }

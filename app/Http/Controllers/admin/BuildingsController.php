@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Carbon\Carbon;
 class BuildingsController extends Controller
 {
     /**
@@ -24,7 +24,7 @@ class BuildingsController extends Controller
      */
     public function create()
     {
-        //
+        return view('building.buildingform');
     }
 
     /**
@@ -35,7 +35,12 @@ class BuildingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fileName =  Carbon::now()->toDateTimeString() . '.' . $request->file('model')->getClientOriginalExtension();
+        $pathUrl = base_path() . '/public/files/catalog/';
+        $request->file('model')->move(
+            $pathUrl, $fileName
+        );
+        return $pathUrl . $fileName;
     }
 
     /**
