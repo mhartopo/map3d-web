@@ -57,7 +57,9 @@
               <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+              {{ Form::open(array('route' => array('owners.destroy', $owner->id), 'method' => 'delete'))}}
+                    {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
+                  {{ Form::close() }}
             </td>
           </tr>
         @endforeach

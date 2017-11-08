@@ -70,7 +70,7 @@
                 </td>
                 <td>
                   {{ Form::open(array('route' => array('lands.destroy', $land->id), 'method' => 'delete'))}}
-                    {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                    {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
                   {{ Form::close() }}
                 </td>
               </tr>
