@@ -25,7 +25,7 @@
     <!-- Custom CSS -->
     <link href="{{URL::asset('css/startmin.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/myapp.css')}}" rel="stylesheet">
-
+    
     <!-- Morris Charts CSS -->
     <link href="{{URL::asset('css/morris.css')}}" rel="stylesheet">
 

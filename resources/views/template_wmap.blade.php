@@ -151,6 +151,7 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{URL::asset('js/startmin.js')}}"></script>
 
+
 <!-- Google map script -->
 <script>
   function initMap() {

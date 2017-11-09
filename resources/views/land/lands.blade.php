@@ -13,7 +13,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-3">
-        <button class="btn m-b-sm m-r-sm btn-success" onclick="location.href = '{{URL::to('/')}}/lands/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Tanah</button>
+        <button class="btn m-b-sm m-r-sm btn-primary" onclick="location.href = '{{URL::to('/')}}/lands/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Tanah</button>
       </div>
       <div class="col-md-9">
         <form action = "{{URL::to('/')}}/lands/search" method="GET">

@@ -13,7 +13,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-3">
-        <button class="btn m-b-sm m-r-sm btn-success" onclick="location.href = '{{URL::to('/')}}/owners/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Pemilik</button>
+        <button class="btn m-b-sm m-r-sm btn-primary" onclick="location.href = '{{URL::to('/')}}/owners/create';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Pemilik</button>
       </div>
       <div class="col-md-9">
         <form action = "{{URL::to('/')}}/owners/search" method="GET">
@@ -54,7 +54,7 @@
             <td>{{$owner->type}}</td>
             <td>{{$owner->telephone}}</td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+              <a href="{{URL::to('/')}}/owners/{{$owner->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>
             <td>
               {{ Form::open(array('route' => array('owners.destroy', $owner->id), 'method' => 'delete'))}}

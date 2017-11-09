@@ -78,7 +78,8 @@ class OwnersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $owner = Owner::find($id);
+        return view('owner.edit_owner', compact('owner'));
     }
 
     /**
@@ -88,9 +89,12 @@ class OwnersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreOwnerRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $owner = Owner::find($id);
+        $owner->update($data);
+        return \Redirect::to('owners');
     }
 
     /**

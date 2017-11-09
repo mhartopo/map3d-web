@@ -103,7 +103,7 @@
           <textarea class="form-control"  rows="3" name="description" value="{{ $cluster->description }}">{{$cluster->description}}</textarea>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-md btn-primary">Kirim</button>
+          <button type="submit" class="btn btn-md btn-primary">Update</button>
         </div>
       {{ Form::close() }}
       </div>
