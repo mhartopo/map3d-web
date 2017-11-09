@@ -36,7 +36,7 @@ class ParksController extends Controller
      */
     public function create()
     {
-        //
+        return view('park.parkform');
     }
 
     /**
@@ -47,7 +47,9 @@ class ParksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $park = Park::create($data);
+        return \Redirect::to('parks');
     }
 
     /**

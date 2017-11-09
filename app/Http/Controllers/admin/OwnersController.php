@@ -35,7 +35,7 @@ class OwnersController extends Controller
      */
     public function create()
     {
-        //
+        return view('owner.ownerform');
     }
 
     /**
@@ -46,7 +46,9 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $owner = Owner::create($data);
+        return \Redirect::to('owners');
     }
 
     /**

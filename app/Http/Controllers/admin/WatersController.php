@@ -35,7 +35,7 @@ class WatersController extends Controller
      */
     public function create()
     {
-        //
+        return view('water.waterform');
     }
 
     /**
@@ -46,7 +46,9 @@ class WatersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $water = Water::create($data);
+        return \Redirect::to('waters');
     }
 
     /**

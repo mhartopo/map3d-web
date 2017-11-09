@@ -36,7 +36,7 @@ class LandsController extends Controller
      */
     public function create()
     {
-        //
+        return view('land.landform');
     }
 
     /**
@@ -47,7 +47,9 @@ class LandsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $land = Land::create($data);
+        return \Redirect::to('lands');
     }
 
     /**

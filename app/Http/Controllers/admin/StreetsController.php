@@ -35,7 +35,7 @@ class StreetsController extends Controller
      */
     public function create()
     {
-        //
+        return view('street.streetform');
     }
 
     /**
@@ -46,7 +46,9 @@ class StreetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $street = Street::create($data);
+        return \Redirect::to('streets');
     }
 
     /**
