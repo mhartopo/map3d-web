@@ -41,3 +41,7 @@ Route::resource('streets', 'admin\StreetsController');
 Route::get('waters/search', 'admin\WatersController@search');
 Route::resource('waters', 'admin\WatersController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
