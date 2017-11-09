@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Street;
+use App\Http\Requests\StoreStreetRequest;
+
 class StreetsController extends Controller
 {
     public function __construct()
@@ -44,7 +46,7 @@ class StreetsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStreetRequest $request)
     {
         $data = $request->all();
         $street = Street::create($data);

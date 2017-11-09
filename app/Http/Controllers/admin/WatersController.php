@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Water;
+use App\Http\Requests\StoreWaterRequest;
+
 class WatersController extends Controller
 {
     public function __construct()
@@ -44,7 +46,7 @@ class WatersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreWaterRequest $request)
     {
         $data = $request->all();
         $water = Water::create($data);

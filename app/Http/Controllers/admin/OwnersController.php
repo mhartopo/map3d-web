@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Owner;
+use App\Http\Requests\StoreOwnerRequest;
+
 class OwnersController extends Controller
 {
     public function __construct()
@@ -44,7 +46,7 @@ class OwnersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreOwnerRequest $request)
     {
         $data = $request->all();
         $owner = Owner::create($data);

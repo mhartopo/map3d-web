@@ -13,7 +13,7 @@ class StoreStreetRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreStreetRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:255',
+            'type' => 'required',
+            'cluster_id' => 'required|integer',
+            'model_url' => 'required|url',
         ];
     }
 }

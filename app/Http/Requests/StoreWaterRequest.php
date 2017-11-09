@@ -13,7 +13,7 @@ class StoreWaterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreWaterRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:255',
+            'function' => 'required',
+            'type' => 'required',
+            'cluster_id' => 'required|integer',
+            'model_url' => 'required|url',
         ];
     }
 }
