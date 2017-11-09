@@ -64,7 +64,7 @@
                 <td>{{$street->type}}</td>
                 <td>{{$street->description}}</td>
                 <td>
-                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                  <a href="{{URL::to('/')}}/streets/{{$street->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>
                 <td>
                   {{ Form::open(array('route' => array('streets.destroy', $street->id), 'method' => 'delete'))}}

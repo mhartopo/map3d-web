@@ -97,9 +97,11 @@ class ClustersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        
+    public function update(StoreClusterRequest $request, $id)
+    {   
+        $data = $request->all();
+        Cluster::find($id)->update($data);
+        return \Redirect::to('clusters/'.$id);
     }
 
     /**

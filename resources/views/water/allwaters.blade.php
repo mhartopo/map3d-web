@@ -66,7 +66,7 @@
                 <td>{{$water->function}}</td>
                 <td>{{$water->description}}</td>
                 <td>
-                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                  <a href="{{URL::to('/')}}/waters/{{$water->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>
                 <td>
                   {{ Form::open(array('route' => array('waters.destroy', $water->id), 'method' => 'delete'))}}

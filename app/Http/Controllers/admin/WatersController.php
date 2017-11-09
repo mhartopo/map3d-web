@@ -72,7 +72,8 @@ class WatersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $water =  Water::find($id);
+        return view('water.edit_water', compact('water'));
     }
 
     /**
@@ -82,9 +83,12 @@ class WatersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreWaterRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $water = Water::find($id);
+        $water->update($data);
+        return \Redirect::to('waters');
     }
 
     /**

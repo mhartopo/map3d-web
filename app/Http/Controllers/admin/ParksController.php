@@ -72,7 +72,8 @@ class ParksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $park = Park::find($id);
+        return view('park.edit_park', compact('park'));
     }
 
     /**
@@ -82,9 +83,12 @@ class ParksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreParkRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $park = Park::find($id);
+        $park->update($data);
+        return \Redirect::to('parks');
     }
 
     /**

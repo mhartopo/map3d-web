@@ -64,7 +64,7 @@
                 <td>{{$park->address}}</td>
                 <td>{{$park->length}} x {{$park->width}} m</td>
                 <td>
-                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                  <a href="{{URL::to('/')}}/parks/{{$park->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>
                 <td>
                   {{ Form::open(array('route' => array('parks.destroy', $park->id), 'method' => 'delete'))}}

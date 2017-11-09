@@ -72,7 +72,8 @@ class StreetsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $street = Street::find($id);
+        return view('street.edit_street', compact('street'));
     }
 
     /**
@@ -82,9 +83,12 @@ class StreetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreStreetRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $street = Street::find($id);
+        $street->update($data);
+        return \Redirect::to('streets');
     }
 
     /**

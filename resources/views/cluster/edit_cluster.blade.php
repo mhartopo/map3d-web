@@ -12,11 +12,14 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-10">
-  
-      {{ Form::open(array('route' => array('clusters.update', $cluster->id),'files'=>true, 'method'=>'put')) }}
+      <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+      {{ Form::open(array('action' => array('admin\ClustersController@update', $cluster->id),'files'=>true, 'method'=>'put')) }}
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
           <label for="name" >Name</label>
-
             <input id="name" type="text" class="form-control" name="name" value="{{ $cluster->name }}" required autofocus>
             @if ($errors->has('name'))
               <span class="help-block">
@@ -97,7 +100,7 @@
         </div>
         <div class="form-group">
           <label>Deskripsi</label>
-          <textarea class="form-control"  rows="3" name="description" value="{{ $cluster->description }}"></textarea>
+          <textarea class="form-control"  rows="3" name="description" value="{{ $cluster->description }}">{{$cluster->description}}</textarea>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-md btn-primary">Kirim</button>

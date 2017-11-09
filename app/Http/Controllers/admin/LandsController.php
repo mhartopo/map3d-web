@@ -72,7 +72,8 @@ class LandsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $land = Land::find($id);
+        return view('land.edit_land', compact('land'));
     }
 
     /**
@@ -82,9 +83,12 @@ class LandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreLandRequest $request, $id)
     {
-        //
+        $land = Land::find($id);
+        $data = $request->all();
+        $land->update($data);
+        return \Redirect::to('lands');
     }
 
     /**

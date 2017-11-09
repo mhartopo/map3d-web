@@ -81,7 +81,8 @@ class BuildingsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $building = Building::find($id);
+        return view('building.edit_building', compact('building'));
     }
 
     /**
@@ -91,9 +92,12 @@ class BuildingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBuildingRequest $request, $id)
     {
-        //
+        $building = Building::find($id);
+        $data = $request->all();
+        $building->update($data);
+        return \Redirect::to('buildings');
     }
 
     /**
