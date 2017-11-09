@@ -10,11 +10,11 @@
       Form Bangunan Baru
   </div>
   <div class="panel-body">
-        <ul>
+        <!--<ul>
             @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul>
+        </ul> -->
     <div class="row">
       <div class="col-lg-10">
       {{ Form::open(array('action' => 'admin\BuildingsController@store','files'=>true, 'method'=>'post')) }}

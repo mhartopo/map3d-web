@@ -13,7 +13,7 @@ class StoreParkRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class StoreParkRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:255',
+            'address' => 'required|min:10|max:255',
+            'length' => 'required|numeric|min:0',
+            'width' => 'required|numeric|min:0',
+            'owner_id' => 'integer',
+            'cluster_id' => 'required|integer',
+            'model_url' => 'required|url',
         ];
     }
 }

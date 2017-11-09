@@ -10,14 +10,10 @@
       Form Tanah Baru
   </div>
   <div class="panel-body">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+
     <div class="row">
       <div class="col-lg-10">
-      {{ Form::open(array('action' => 'admin\BuildingsController@store','files'=>true, 'method'=>'post')) }}
+      {{ Form::open(array('action' => 'admin\LandsController@store','files'=>true, 'method'=>'post')) }}
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
           <label for="name" >Name</label>
             <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -30,13 +26,10 @@
         <div class="form-group">
           <label>Fungsi</label>
           <select class="form-control" name="function">
-              <option>Kantor Polisi</option>
-              <option>Kesehatan</option>
-              <option>Pemerintahan</option>
-              <option>Pendidikan</option>
-              <option>Perbelanjaan</option>
-              <option>Peribadahan</option>
-              <option>Perkantoran</option>
+              <option>Tanah Kosong</option>
+              <option>Lapangan</option>
+              <option>Sawah</option>
+              <option>Perkebunan</option>
           </select>
         </div>
         <div class="form-group">
@@ -87,20 +80,6 @@
             @if ($errors->has('width'))
               <span class="help-block">
                   <strong>{{ $errors->first('width') }}</strong>
-              </span>
-            @endif
-          
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label>Tinggi Tanah</label>
-          <div class="form-group{{ $errors->has('height') ? ' has-error' : '' }}">
-            
-            <input id="name" type="text" class="form-control" name="height" value="{{ old('height') }}" required autofocus>
-            @if ($errors->has('height'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('height') }}</strong>
               </span>
             @endif
           

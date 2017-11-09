@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Land;
+use App\Http\Requests\StoreLandRequest;
 
 class LandsController extends Controller
 {
@@ -45,7 +46,7 @@ class LandsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLandRequest $request)
     {
         $data = $request->all();
         $land = Land::create($data);

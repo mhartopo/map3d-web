@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Park;
+use App\Http\Requests\StoreParkRequest;
 
 class ParksController extends Controller
 {
@@ -45,7 +46,7 @@ class ParksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreParkRequest $request)
     {
         $data = $request->all();
         $park = Park::create($data);

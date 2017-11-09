@@ -10,14 +10,9 @@
       Form Perairan Baru
   </div>
   <div class="panel-body">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
     <div class="row">
       <div class="col-lg-10">
-      {{ Form::open(array('action' => 'admin\BuildingsController@store','files'=>true, 'method'=>'post')) }}
+      {{ Form::open(array('action' => 'admin\WatersController@store','files'=>true, 'method'=>'post')) }}
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
           <label for="name" >Name</label>
             <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -28,85 +23,26 @@
             @endif
         </div>
         <div class="form-group">
-          <label>Fungsi</label>
-          <select class="form-control" name="function">
-              <option>Kantor Polisi</option>
-              <option>Kesehatan</option>
-              <option>Pemerintahan</option>
-              <option>Pendidikan</option>
-              <option>Perbelanjaan</option>
-              <option>Peribadahan</option>
-              <option>Perkantoran</option>
+          <label>Jenis</label>
+          <select class="form-control" name="type">
+              <option>Sungai</option>
+              <option>Danau</option>
+              <option>Kolam</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Alamat Perairan</label>
-          <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+          <label>Fungsi</label>
+          <div class="form-group{{ $errors->has('function') ? ' has-error' : '' }}">
             
-            <input id="name" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
-            @if ($errors->has('address'))
+            <input id="name" type="text" class="form-control" name="function" value="{{ old('function') }}" required autofocus>
+            @if ($errors->has('function'))
               <span class="help-block">
-                  <strong>{{ $errors->first('address') }}</strong>
+                  <strong>{{ $errors->first('function') }}</strong>
               </span>
             @endif
           
           </div>
         </div>
-
-        <div class="form-group">
-          <label>Nilai Perairan</label>
-          <div class="form-group{{ $errors->has('value') ? ' has-error' : '' }}">
-            
-            <input id="name" type="text" class="form-control" name="value" value="{{ old('value') }}" required autofocus>
-            @if ($errors->has('value'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('value') }}</strong>
-              </span>
-            @endif
-          
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Panjang Perairan</label>
-          <div class="form-group{{ $errors->has('length') ? ' has-error' : '' }}">
-            
-            <input id="name" type="text" class="form-control" name="length" value="{{ old('length') }}" required autofocus>
-            @if ($errors->has('length'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('length') }}</strong>
-              </span>
-            @endif
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Lebar Perairan</label>
-          <div class="form-group{{ $errors->has('width') ? ' has-error' : '' }}">
-            
-            <input id="name" type="text" class="form-control" name="width" value="{{ old('width') }}" required autofocus>
-            @if ($errors->has('width'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('width') }}</strong>
-              </span>
-            @endif
-          
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label>Tinggi Perairan</label>
-          <div class="form-group{{ $errors->has('height') ? ' has-error' : '' }}">
-            
-            <input id="name" type="text" class="form-control" name="height" value="{{ old('height') }}" required autofocus>
-            @if ($errors->has('height'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('height') }}</strong>
-              </span>
-            @endif
-          
-          </div>
-        </div>
-
         <div class="form-group">
           <label>Lokasi</label>
           <div class="form-group">
@@ -124,19 +60,6 @@
               <label>Longitude</label>
               <input class="form-control" id="lngInput" placeholder="Longitude" name="longitude" readonly>
             </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>ID Pemilik</label>
-          <div class="form-group{{ $errors->has('owner_id') ? ' has-error' : '' }}">
-            
-            <input id="name" type="text" class="form-control" name="owner_id" value="{{ old('owner_id') }}" required autofocus>
-            @if ($errors->has('owner_id'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('owner_id') }}</strong>
-              </span>
-            @endif
-          
           </div>
         </div>
 

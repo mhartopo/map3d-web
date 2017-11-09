@@ -13,7 +13,7 @@ class StoreLandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class StoreLandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'function' => 'required',
+            'address' => 'required|min:10|max:255',
+            'value' => 'required|integer|min:0',
+            'length' => 'required|numeric|min:0',
+            'width' => 'required|numeric|min:0',
+            'owner_id' => 'integer',
+            'cluster_id' => 'required|integer',
+            'model_url' => 'required|url',
         ];
     }
 }
