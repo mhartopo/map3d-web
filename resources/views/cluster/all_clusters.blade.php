@@ -64,7 +64,7 @@
                 <td>{{$cluster->type}}</td>
                 <td>{{$cluster->address}}</td>
                 <td>
-                  <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+                  <a href="{{URL::to('/')}}/clusters/{{$cluster->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>
                 <td>
                   {{ Form::open(array('route' => array('clusters.destroy', $cluster->id), 'method' => 'delete'))}}

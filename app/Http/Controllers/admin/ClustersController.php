@@ -11,7 +11,6 @@ use App\Water;
 use App\Land;
 use App\Street;
 use App\Owner;
-use Mapper;
 use App\Http\Requests\StoreClusterRequest;
 class ClustersController extends Controller
 {
@@ -43,7 +42,7 @@ class ClustersController extends Controller
      */
     public function create()
     {
-        Mapper::map(-6.909579,107.606419);
+        
         return view('cluster.clusterform');
     }
 
@@ -87,7 +86,8 @@ class ClustersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cluster = Cluster::find($id);
+        return view('cluster.edit_cluster', compact('cluster'));
     }
 
     /**
@@ -99,7 +99,7 @@ class ClustersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

@@ -155,14 +155,19 @@
 <script>
   function initMap() {
     
-    var myLatlng = new google.maps.LatLng(-6.909579,107.606419);
+    var lat = -6.909579;
+    var lng = 107.606419;
+    if(document.getElementById("latInput").value != "") {
+        lat = document.getElementById("latInput").value;
+        lng = document.getElementById("lngInput").value;
+    }
+    var myLatlng = new google.maps.LatLng(lat,lng);
     var mapOptions = {
       zoom: 14,
       center: myLatlng,
     }
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    document.getElementById("latInput").value = -6.909579;
-    document.getElementById("lngInput").value = 107.606419; 
+  
     // Place a draggable marker on the map
     var marker = new google.maps.Marker({
         position: myLatlng,
