@@ -12,7 +12,7 @@ use App\Land;
 use App\Street;
 use App\Owner;
 use Mapper;
-
+use App\Http\Requests\StoreClusterRequest;
 class ClustersController extends Controller
 {
     public function __construct()
@@ -53,10 +53,10 @@ class ClustersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreClusterRequest $request)
     {
         $data = $request->all();
-    	$cluster = Cluster::create($data);
+        $cluster = Cluster::create($data);
         return \Redirect::to('clusters/'.$cluster->id);  
     }
 

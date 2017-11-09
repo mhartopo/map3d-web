@@ -43,5 +43,3 @@ Route::resource('waters', 'admin\WatersController');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

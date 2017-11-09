@@ -11,6 +11,8 @@
         @yield('title')
     </title>
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- Bootstrap Core CSS -->
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
 

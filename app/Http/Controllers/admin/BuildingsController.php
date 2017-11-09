@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Building;
+use App\Http\Requests\StoreBuildingRequest;
 
 class BuildingsController extends Controller
 {
@@ -46,7 +47,7 @@ class BuildingsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBuildingRequest $request)
     {
         /*
         $fileName =  Carbon::now()->toDateTimeString() . '.' . $request->file('model')->getClientOriginalExtension();
@@ -56,6 +57,9 @@ class BuildingsController extends Controller
         );
         return $pathUrl . $fileName;
         */
+        $data = $request->all();
+        $building = Building::create($data);
+        return \Redirect::to('buildings');
     }
 
     /**

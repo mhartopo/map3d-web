@@ -12,18 +12,45 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-10">
+  
+
       {{ Form::open(array('action' => 'admin\ClustersController@store','files'=>true, 'method'=>'post')) }}
-        <div class="form-group">
-          <label>Nama Kompleks</label>
-          <input class="form-control" name="name">
+        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+          <label for="name" >Name</label>
+
+            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+            @if ($errors->has('name'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('name') }}</strong>
+              </span>
+            @endif
+          
         </div>
         <div class="form-group">
           <label>Jenis</label>
-          <input class="form-control" name="type">
+          <select class="form-control" name="type">
+              <option>Perumahan</option>
+              <option>RT</option>
+              <option>Pemerintahan</option>
+              <option>Pendidikan</option>
+              <option>Kesehatan</option>
+              <option>Perbelanjaan</option>
+              <option>Perindustrian</option>
+              <option>Perkantoran</option>
+          </select>
         </div>
         <div class="form-group">
           <label>Alamat Kompleks</label>
-          <input class="form-control" name="address">
+          <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+            
+            <input id="name" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+            @if ($errors->has('address'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('address') }}</strong>
+              </span>
+            @endif
+          
+          </div>
         </div>
         <div class="form-group">
           <label>Lokasi</label>
@@ -46,11 +73,28 @@
         </div>
         <div class="form-group">
           <label>ID Pemilik</label>
-          <input class="form-control" name="owner_id">
+          <div class="form-group{{ $errors->has('owner_id') ? ' has-error' : '' }}">
+            
+            <input id="name" type="text" class="form-control" name="owner_id" value="{{ old('owner_id') }}" required autofocus>
+            @if ($errors->has('owner_id'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('owner_id') }}</strong>
+              </span>
+            @endif
+          
+          </div>
         </div>
         <div class="form-group">
           <label>Model URL</label>
-          <input class="form-control" name="model_url">
+          <div class="form-group{{ $errors->has('model_url') ? ' has-error' : '' }}">
+            
+            <input id="name" type="text" class="form-control" name="model_url" value="{{ old('model_url') }}" required autofocus>
+            @if ($errors->has('model_url'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('model_url') }}</strong>
+              </span>
+            @endif
+          </div>
         </div>
         <div class="form-group">
           <label>Deskripsi</label>
