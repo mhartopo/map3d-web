@@ -28,13 +28,11 @@
         <div class="form-group">
           <label>Lokasi</label>
           <div class="form-group">
-            <div class="row">
-              <div class="col-lg-12">
-                <div style="width: 700px; height: 500px;" id="map">
+            <div class="panel panel-default">
+              <div class="panel-body" id="map" >
               </div>
             </div>
           </div>
-          </br>
           <div class="row">
             <div class="col-md-6">
               <label>Latitude</label>
