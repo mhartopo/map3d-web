@@ -1,0 +1,71 @@
+api root = http://app3dmap.herokuapp.com/api
+//===============================================//
+Keterangan :
+untuk enpoint di bawah yang tidak ada penjelasannya
+  /objek  : menampilkan semua objek
+  /objek/{objek} : menampilkkan objek berdasarkan id
+//================================================//
+
+**--building
+-- menampilkan semua bangunan
+/buildings
+-- menampilkan bangunan berdasarkan id
+/buildings/{building}
+-- bangunan berdasarkan namanya
+/buildings/name/{name}
+-- bangunan berdasarkna alamat
+/buildings/address/{address}
+
+
+**--cluster
+/clusters
+/clusters/{cluster}
+--kompleks berdasarkan namanya
+/clusters/name/{name}
+-- kompleks bersarakan alamatnya
+/clusters/address/{address}
+--ambil kompleks terdekat, parameter request = long=..&lat=..
+--contoh : clusters/search/nearest?long=170&lat=-6
+/clusters/search/nearest
+
+
+**--land
+/lands
+/lands/{land}
+-- tanah berdasarkan alamat
+/lands/address/{address}
+
+
+**--owner
+/owners
+/owners/{owner}
+
+
+**--parks
+/parks
+/parks/{park}
+/parks/name/{name}
+-- taman berdasarkan namanya
+/parks/address/{address}
+
+
+**--street
+/streets
+/streets/{street}
+-- jalan berdasarkan nama
+/streets/name/{name}
+
+
+**--water
+/waters
+/waters/{water}
+--perairan berdasarkan nama
+/waters/name/{name}
+
+
+**-- composite, hasilnya kumpulan dari kompleks, perumahan, perairan, dll
+/composite
+-- berdasarkan nama
+/composite/name/{name}
+--berdasarkan alamat terdekat
+/composite/address/{address}

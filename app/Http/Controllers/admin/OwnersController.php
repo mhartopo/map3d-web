@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Owner;
 use App\Http\Requests\StoreOwnerRequest;
+use App\Cluster;
+use App\Building;
+use App\Land;
+use App\Park;
+use App\Street;
+use App\Water;
 
 class OwnersController extends Controller
 {
@@ -95,6 +101,19 @@ class OwnersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Building::where('owner_id', $id)->delete();
+        Land::where('owner_id', $id)->delete();
+        Park::where('owner_id', $id)->delete();
+        
+        $clusters = Cluster::where('owner_id', $id)->get();
+        foreach($clusters as $cluster) {
+            Building::where('cluster_id', $cluster->id)->delete();
+            Land::where('cluster_id', $cluster->id)->delete();
+            Park::where('cluster_id', $cluster->id)->delete();
+            $cluster->delete();
+        }
+        $owner = Owner::find($id);
+        $owner->delete();
+        return \Redirect::to('owners');
     }
 }
