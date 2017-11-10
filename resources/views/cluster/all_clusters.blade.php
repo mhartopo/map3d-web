@@ -52,6 +52,7 @@
                 <th>Nama</th>
                 <th>Jenis</th>
                 <th>Alamat</th>
+                <th>Lokasi</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -63,6 +64,7 @@
                 <td><a href="{{URL::to('/')}}/clusters/{{$cluster->id}}">{{$cluster->name}}</a></td>
                 <td>{{$cluster->type}}</td>
                 <td>{{$cluster->address}}</td>
+                <td><a target="_blank" href="https://www.google.com/maps/?q={{$cluster->latitude}},{{$cluster->longitude}}">Lihat</a></td>
                 <td>
                   <a href="{{URL::to('/')}}/clusters/{{$cluster->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>

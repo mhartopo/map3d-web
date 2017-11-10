@@ -43,6 +43,7 @@
             <th>Fungsi</th>
             <th>Alamat</th>
             <th>Nilai Jual</th>
+            <th>Lokasi</th>
             <th></th>
             <th></th>
           </tr>
@@ -55,6 +56,7 @@
             <td>{{$building->function}}</td>
             <td>{{$building->address}}</td>
             <td>Rp. {{$building->value}}</td>
+            <td><a target="_blank" href="https://www.google.com/maps/?q={{$building->latitude}},{{$building->longitude}}">Lihat</a></td>
             <td>
               <a href="{{URL::to('/')}}/buildings/{{ $building->id }}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>

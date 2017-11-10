@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cluster;
+use App\Building;
+use App\Park;
+use App\Land;
+use App\Street;
+use App\Water;
 
 class ClusterController extends Controller
 {
@@ -21,6 +26,26 @@ class ClusterController extends Controller
 
     public function getByAddress($address) {
         return Cluster::where('address', 'like', $address.'%')->get();
+    }
+
+    public function getByObject(Cluster $cluster, $objname) {
+        switch ($objname) {
+            case "building":
+                return Building::where('cluster_id', $cluster->id)->get();
+                break;
+            case "land":
+                return Land::where('cluster_id', $cluster->id)->get();
+                break;
+            case "park":
+                return Park::where('cluster_id', $cluster->id)->get();
+                break;
+            case "street":
+                return Street::where('cluster_id', $cluster->id)->get();
+                break;
+            case "water":
+                return Water::where('cluster_id', $cluster->id)->get();
+        }
+        return [];
     }
 
     public function getNearest(Request $request) {
