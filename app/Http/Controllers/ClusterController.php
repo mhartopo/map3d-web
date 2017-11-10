@@ -30,19 +30,19 @@ class ClusterController extends Controller
 
     public function getByObject(Cluster $cluster, $objname) {
         switch ($objname) {
-            case "building":
+            case "buildings":
                 return Building::where('cluster_id', $cluster->id)->get();
                 break;
-            case "land":
+            case "lands":
                 return Land::where('cluster_id', $cluster->id)->get();
                 break;
-            case "park":
+            case "parks":
                 return Park::where('cluster_id', $cluster->id)->get();
                 break;
-            case "street":
+            case "streets":
                 return Street::where('cluster_id', $cluster->id)->get();
                 break;
-            case "water":
+            case "waters":
                 return Water::where('cluster_id', $cluster->id)->get();
         }
         return [];
