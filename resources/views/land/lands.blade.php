@@ -53,6 +53,7 @@
                 <th>Jenis</th>
                 <th>Nilai</th>
                 <th>Ukuran</th>
+                <th>Lokasi</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -65,6 +66,7 @@
                 <td>{{$land->function}}</td>
                 <td>{{$land->value}}</td>
                 <td>{{$land->length}} x {{$land->width}} m</td>
+                <td><a target="_blank" href="https://www.google.com/maps/?q={{$land->latitude}},{{$land->longitude}}">Lihat</a></td>
                 <td>
                   <a href="{{URL::to('/')}}/lands/{{$land->id }}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>

@@ -52,6 +52,7 @@
                 <th>Nama</th>
                 <th>Jenis</th>
                 <th>Deskripsi</th>
+                <th>Lokasi</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -63,6 +64,7 @@
                 <td>{{$street->name}}</td>
                 <td>{{$street->type}}</td>
                 <td>{{$street->description}}</td>
+                <td><a target="_blank" href="https://www.google.com/maps/?q={{$street->latitude}},{{$street->longitude}}">Lihat</a></td>
                 <td>
                   <a href="{{URL::to('/')}}/streets/{{$street->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>

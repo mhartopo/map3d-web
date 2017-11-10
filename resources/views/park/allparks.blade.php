@@ -52,6 +52,7 @@
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>Ukuran</th>
+                <th>Lokasi</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -63,6 +64,7 @@
                 <td>{{$park->name}}</td>
                 <td>{{$park->address}}</td>
                 <td>{{$park->length}} x {{$park->width}} m</td>
+                <td><a target="_blank" href="https://www.google.com/maps/?q={{$park->latitude}},{{$park->longitude}}">Lihat</a></td>
                 <td>
                   <a href="{{URL::to('/')}}/parks/{{$park->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>

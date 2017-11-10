@@ -53,6 +53,7 @@
                 <th>Jenis</th>
                 <th>Fungsi</th>
                 <th>Deskripsi</th>
+                <th>Lokasi</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -65,6 +66,7 @@
                 <td>{{$water->type}}</td>
                 <td>{{$water->function}}</td>
                 <td>{{$water->description}}</td>
+                <td><a target="_blank" href="https://www.google.com/maps/?q={{$water->latitude}},{{$water->longitude}}">Lihat</a></td>
                 <td>
                   <a href="{{URL::to('/')}}/waters/{{$water->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
                 </td>
