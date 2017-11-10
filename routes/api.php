@@ -29,10 +29,10 @@ Route::get('buildings/address/{address}', 'BuildingController@getByAddress');
 Route::get('clusters', 'ClusterController@index');
 Route::post('clusters', 'ClusterController@store');
 Route::get('clusters/{cluster}', 'ClusterController@show');
-Route::get('clusters/{cluster}/{objname}', 'ClusterController@getByObject');
 Route::get('clusters/name/{name}', 'ClusterController@getByName');
 Route::get('clusters/address/{address}', 'ClusterController@getByAddress');
 Route::get('clusters/search/nearest', 'ClusterController@getNearest');
+Route::get('clusters/{cluster}/{objname}', 'ClusterController@getByObject');
 
 //land
 Route::get('lands', 'LandController@index');
