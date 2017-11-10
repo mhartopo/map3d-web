@@ -35,9 +35,10 @@ class StreetsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('street.streetform');
+        $cluster_id = $request->input('cluster');
+        return view('street.streetform', compact('cluster_id'));
     }
 
     /**

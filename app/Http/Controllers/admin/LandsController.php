@@ -35,9 +35,10 @@ class LandsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('land.landform');
+        $cluster_id = $request->input('cluster');
+        return view('land.landform', compact('cluster_id'));
     }
 
     /**

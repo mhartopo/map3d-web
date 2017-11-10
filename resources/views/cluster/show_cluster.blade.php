@@ -52,6 +52,15 @@
 @endsection
 
 @section('bangunan')
+  <div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn m-b-sm m-r-sm btn-primary" onclick="location.href = '{{URL::to('/')}}/buildings/create?cluster={{$cluster[0]->id}}';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Bangunan</button>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="row">
   <div class="col-lg-12">
     <div class="dataTable_wrapper">
@@ -76,10 +85,12 @@
             <td>{{$building->address}}</td>
             <td>Rp. {{$building->value}}</td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+              <a href="{{URL::to('/')}}/buildings/{{ $building->id }}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+              {{ Form::open(array('route' => array('buildings.destroy', $building->id), 'method' => 'delete'))}}
+                    {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
+                  {{ Form::close() }}
             </td>
           </tr>
         @endforeach
@@ -94,6 +105,15 @@
 @endsection
 
 @section('taman')
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn m-b-sm m-r-sm btn-primary" onclick="location.href = '{{URL::to('/')}}/parks/create?cluster={{$cluster[0]->id}}';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Taman</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
   <div class="col-lg-12">
     <div class="dataTable_wrapper">
@@ -116,10 +136,12 @@
             <td>{{$park->width * $park->length}} m<sup>2</sup></td>
             <td>{{$park->address}}</td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+              <a href="{{URL::to('/')}}/parks/{{$park->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+              {{ Form::open(array('route' => array('parks.destroy', $park->id), 'method' => 'delete'))}}
+                {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
+              {{ Form::close() }}
             </td>
           </tr>
         @endforeach
@@ -134,6 +156,15 @@
 @endsection
 
 @section('tanah')
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn m-b-sm m-r-sm btn-primary" onclick="location.href = '{{URL::to('/')}}/lands/create?cluster={{$cluster[0]->id}}';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Tanah</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
   <div class="col-lg-12">
     <div class="dataTable_wrapper">
@@ -156,10 +187,12 @@
             <td>{{$land->width * $land->length}} m<sup>2</sup></td>
             <td>Rp. {{$land->value}}</td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+              <a href="{{URL::to('/')}}/lands/{{$land->id }}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+              {{ Form::open(array('route' => array('lands.destroy', $land->id), 'method' => 'delete'))}}
+                {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
+              {{ Form::close() }}
             </td>
           </tr>
         @endforeach
@@ -174,6 +207,15 @@
 @endsection
 
 @section('jalan')
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn m-b-sm m-r-sm btn-primary" onclick="location.href = '{{URL::to('/')}}/streets/create?cluster={{$cluster[0]->id}}';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Jalan</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
   <div class="col-lg-12">
     <div class="dataTable_wrapper">
@@ -194,10 +236,12 @@
             <td>{{$street->name}}</td>
             <td>{{$street->type}}</td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+              <a href="{{URL::to('/')}}/streets/{{$street->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+              {{ Form::open(array('route' => array('streets.destroy', $street->id), 'method' => 'delete'))}}
+                {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
+              {{ Form::close() }}
             </td>
           </tr>
         @endforeach
@@ -212,6 +256,16 @@
 @endsection
 
 @section('perairan')
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn m-b-sm m-r-sm btn-primary" onclick="location.href = '{{URL::to('/')}}/waters/create?cluster={{$cluster[0]->id}}';"><i class="m-r-xs fa fa-plus"></i> Tambahkan Perairan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
   <div class="col-lg-12">
     <div class="dataTable_wrapper">
@@ -234,10 +288,12 @@
             <td>{{$water->type}}</td>
             <td>{{$water->function}}</td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
+              <a href="{{URL::to('/')}}/waters/{{$water->id}}/edit" class="btn m-b-sm m-r-sm btn-warning btn-sm" role="button">Edit</a>
             </td>
             <td>
-              <a href="#" class="btn m-b-sm m-r-sm btn-danger btn-sm" role="button">Hapus</a>
+              {{ Form::open(array('route' => array('waters.destroy', $water->id), 'method' => 'delete'))}}
+                {{ Form::submit('Hapus', ['class' => 'btn m-b-sm m-r-sm btn-danger btn-sm']) }}
+              {{ Form::close() }}
             </td>
           </tr>
         @endforeach

@@ -42,8 +42,7 @@ class ClustersController extends Controller
      */
     public function create(Request $request)
     {
-        $cluster_id = $request->input('cluster');
-        return view('cluster.clusterform', compact('cluster_id'));
+        return view('cluster.clusterform');
     }
 
     /**

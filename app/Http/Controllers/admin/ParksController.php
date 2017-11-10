@@ -35,9 +35,10 @@ class ParksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('park.parkform');
+        $cluster_id = $request->input('cluster');
+        return view('park.parkform', compact('cluster_id'));
     }
 
     /**

@@ -100,7 +100,12 @@
           <label>ID Pemilik</label>
           <div class="form-group{{ $errors->has('owner_id') ? ' has-error' : '' }}">
             
-            <input id="name" type="text" class="form-control" name="owner_id" value="{{ old('owner_id') }}" required autofocus>
+            @if($cluster_id == null)
+              <input id="name" type="text" class="form-control" name="cluster_id" value="{{ old('cluster_id') }}" required autofocus>
+            @else
+              <input id="name" type="text" class="form-control" name="cluster_id" value="{{ $cluster_id }}" required autofocus readonly>
+            @endif
+            
             @if ($errors->has('owner_id'))
               <span class="help-block">
                   <strong>{{ $errors->first('owner_id') }}</strong>

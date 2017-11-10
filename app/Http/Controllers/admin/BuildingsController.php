@@ -36,9 +36,10 @@ class BuildingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('building.buildingform');
+        $cluster_id = $request->input('cluster');
+        return view('building.buildingform', compact('cluster_id'));
     }
 
     /**

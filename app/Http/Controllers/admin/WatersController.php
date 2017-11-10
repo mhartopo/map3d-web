@@ -35,9 +35,10 @@ class WatersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('water.waterform');
+        $cluster_id = $request->input('cluster');
+        return view('water.waterform', compact('cluster_id'));
     }
 
     /**
