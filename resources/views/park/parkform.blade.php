@@ -73,15 +73,25 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-              <label>Latitude</label>
-              <input class="form-control" id="latInput" placeholder="Latitude" name="latitude" readonly>
-            </div>
-            <div class="col-md-6">
-              <label>Longitude</label>
-              <input class="form-control" id="lngInput" placeholder="Longitude" name="longitude" readonly>
-            </div>
-          </div>
+            @if ($cluster_id == null)
+              <div class="col-md-6">
+                <label>Latitude</label>
+                <input class="form-control" id="latInput" placeholder="Latitude" name="latitude" readonly>
+              </div>
+              <div class="col-md-6">
+                <label>Longitude</label>
+                <input class="form-control" id="lngInput" placeholder="Longitude" name="longitude" readonly>
+              </div>
+            @else
+              <div class="col-md-6">
+                <label>Latitude</label>
+                <input class="form-control" id="latInput" placeholder="Latitude" name="latitude" value="{{$cluster->latitude}}" readonly>
+              </div>
+              <div class="col-md-6">
+                <label>Longitude</label>
+                <input class="form-control" id="lngInput" placeholder="Longitude" value="{{$cluster->longitude}}" name="longitude" readonly>
+              </div>
+            @endif
         </div>
         <div class="form-group">
           <label>ID Pemilik</label>

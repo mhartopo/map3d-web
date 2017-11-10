@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Land;
 use App\Http\Requests\StoreLandRequest;
+use App\Cluster;
 
 class LandsController extends Controller
 {
@@ -38,7 +39,12 @@ class LandsController extends Controller
     public function create(Request $request)
     {
         $cluster_id = $request->input('cluster');
-        return view('land.landform', compact('cluster_id'));
+        if($cluster_id == null) {
+            return view('land.landform', compact('cluster_id'));
+        } else {
+            $cluster = Cluster::find($cluster_id);
+            return view('land.landform', compact('cluster_id', 'cluster'));
+        } 
     }
 
     /**

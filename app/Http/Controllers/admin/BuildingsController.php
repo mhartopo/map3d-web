@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Building;
 use App\Http\Requests\StoreBuildingRequest;
+use App\Cluster;
 
 class BuildingsController extends Controller
 {
@@ -39,7 +40,12 @@ class BuildingsController extends Controller
     public function create(Request $request)
     {
         $cluster_id = $request->input('cluster');
-        return view('building.buildingform', compact('cluster_id'));
+        if($cluster_id == null) {
+            return view('building.buildingform', compact('cluster_id'));
+        } else {
+            $cluster = Cluster::find($cluster_id);
+            return view('building.buildingform', compact('cluster_id', 'cluster'));
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Water;
 use App\Http\Requests\StoreWaterRequest;
+use App\Cluster;
 
 class WatersController extends Controller
 {
@@ -38,7 +39,12 @@ class WatersController extends Controller
     public function create(Request $request)
     {
         $cluster_id = $request->input('cluster');
-        return view('water.waterform', compact('cluster_id'));
+        if($cluster_id == null) {
+            return view('water.waterform', compact('cluster_id'));
+        } else {
+            $cluster = Cluster::find($cluster_id);
+            return view('water.waterform', compact('cluster_id', 'cluster'));
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Street;
 use App\Http\Requests\StoreStreetRequest;
+use App\Cluster;
 
 class StreetsController extends Controller
 {
@@ -38,7 +39,12 @@ class StreetsController extends Controller
     public function create(Request $request)
     {
         $cluster_id = $request->input('cluster');
-        return view('street.streetform', compact('cluster_id'));
+        if($cluster_id == null) {
+            return view('street.streetform', compact('cluster_id'));
+        } else {
+            $cluster = Cluster::find($cluster_id);
+            return view('street.streetform', compact('cluster_id', 'cluster'));
+        }
     }
 
     /**

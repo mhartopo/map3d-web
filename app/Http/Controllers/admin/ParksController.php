@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Park;
 use App\Http\Requests\StoreParkRequest;
+use App\Cluster;
 
 class ParksController extends Controller
 {
@@ -38,7 +39,12 @@ class ParksController extends Controller
     public function create(Request $request)
     {
         $cluster_id = $request->input('cluster');
-        return view('park.parkform', compact('cluster_id'));
+        if($cluster_id == null) {
+            return view('park.parkform', compact('cluster_id'));
+        } else {
+            $cluster = Cluster::find($cluster_id);
+            return view('park.parkform', compact('cluster_id', 'cluster'));
+        }
     }
 
     /**
