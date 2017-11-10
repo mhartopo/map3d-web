@@ -40,10 +40,10 @@ class ClustersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        
-        return view('cluster.clusterform');
+        $cluster_id = $request->input('cluster');
+        return view('cluster.clusterform', compact('cluster_id'));
     }
 
     /**

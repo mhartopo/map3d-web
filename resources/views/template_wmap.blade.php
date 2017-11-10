@@ -162,6 +162,10 @@
         lat = document.getElementById("latInput").value;
         lng = document.getElementById("lngInput").value;
     }
+
+    document.getElementById("latInput").value = lat;
+    document.getElementById("lngInput").value = lng;
+    
     var myLatlng = new google.maps.LatLng(lat,lng);
     var mapOptions = {
       zoom: 14,

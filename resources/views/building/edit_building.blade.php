@@ -30,6 +30,7 @@
         <div class="form-group">
           <label>Fungsi</label>
           <select class="form-control" name="function">
+              <option>Rumah</option>
               <option>Kantor Polisi</option>
               <option>Kesehatan</option>
               <option>Pemerintahan</option>
