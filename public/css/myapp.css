@@ -29,3 +29,9 @@
     background-color: #7f2891;
     border-color: #7f2791;
 }
+
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #982da2;
+    border-color: #7f2791;
+}
