@@ -135,6 +135,11 @@
             @yield('head_content')
 
             @yield('content')
+            <form class="typeahead" role="search">
+            <div class="form-group">
+              <input type="search" id="owner" name="q" class="form-control search-input" placeholder="Search" autocomplete="off">
+            </div>
+          </form>
 
         </div>
     </div>
@@ -155,6 +160,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{URL::asset('js/startmin.js')}}"></script>
+<script src="{{URL::asset('js/type.js')}}"></script>
 
 </body>
 </html>

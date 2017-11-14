@@ -15,8 +15,9 @@ class OwnerController extends Controller
     	return $owner;
     }
 
-    public function search($name) {
-        $owners =  Owner::where('name', 'like', '%'.$name.'%')->get();
+    public function search(Request $request) {
+        $name = $request->input('q');
+        $owners =  Owner::where('name', 'like', '%'.$name.'%')->pluck('name');
         return $owners;
     }
 

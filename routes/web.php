@@ -43,3 +43,6 @@ Route::resource('waters', 'admin\WatersController');
 
 
 Auth::routes();
+
+//test
+Route::get('test', 'admin\OwnersController@test');

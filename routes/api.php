@@ -40,8 +40,8 @@ Route::get('lands/address/{address}', 'LandController@getByAddress');
 
 //owner
 Route::get('owners', 'OwnerController@index');
+Route::get('owners/find', 'OwnerController@search');
 Route::get('owners/{owner}', 'OwnerController@show');
-Route::get('owners/name/{name}', 'OwnerController@search');
 
 //park
 Route::get('parks', 'ParkController@index');

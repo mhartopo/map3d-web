@@ -120,4 +120,8 @@ class OwnersController extends Controller
         $owner->delete();
         return \Redirect::to('owners');
     }
+
+    public function test() {
+        return view('owner.test');
+    }
 }
