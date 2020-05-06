@@ -51,9 +51,14 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Login
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="/register">Tidak punya akun, Register</a>
+                                </div>
                             </div>
                         </div>
                     </form>
